@@ -50,7 +50,7 @@
         /* Float Animation Keyframes */
         @keyframes float {
             0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
+            50% { transform: translateY(-15px); }
         }
 
         /* Neon Glow Utility Classes */
@@ -69,7 +69,7 @@
             position: fixed;
             top: 0;
             width: 100%;
-            padding: 20px 5%;
+            padding: 15px 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -121,25 +121,25 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 160px 20px 50px;
+            /* Reduced padding to tighten up the layout */
+            padding: 100px 20px 30px; 
         }
 
         .avatar-container {
-            /* Doubled Size */
-            width: 800px;
-            height: 960px;
-            max-width: 100%; /* Keeps it from breaking smaller screens */
-            max-height: 85vh; /* Prevents it from being taller than the screen */
-            margin-bottom: 40px;
+            /* Kept width huge, but changed height to auto to eliminate massive blank gaps */
+            width: 700px;
+            height: auto;
+            max-width: 100%; 
+            /* Reduced bottom margin to pull the title up */
+            margin-bottom: 10px; 
             background: transparent;
             animation: float 5s ease-in-out infinite;
-            /* Added drop-shadow glow to the image itself */
             filter: drop-shadow(0 0 20px rgba(0, 210, 255, 0.6));
         }
 
         .avatar-container img {
             width: 100%;
-            height: 100%;
+            height: auto;
             object-fit: contain;
         }
 
@@ -147,14 +147,14 @@
             font-size: 5.5rem;
             font-weight: 900;
             line-height: 1;
-            margin-bottom: 10px;
+            margin-bottom: 5px; /* Tightened */
             letter-spacing: -2px;
         }
 
         .hero-subtitle {
             font-size: 4.5rem;
             font-weight: 900;
-            margin-bottom: 30px;
+            margin-bottom: 15px; /* Tightened */
             letter-spacing: -1px;
         }
 
@@ -162,12 +162,13 @@
             max-width: 650px;
             color: var(--text-muted);
             font-size: 1.2rem;
-            margin-bottom: 40px;
+            margin-bottom: 20px; /* Tightened */
         }
 
         /* --- Sections --- */
         section {
-            padding: 120px 5%;
+            /* Reduced section padding drastically to bring content closer together */
+            padding: 70px 5%; 
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -176,7 +177,7 @@
         .section-title {
             font-size: 3rem;
             font-weight: 900;
-            margin-bottom: 60px;
+            margin-bottom: 40px; /* Tightened */
             text-transform: uppercase;
             letter-spacing: -1px;
         }
@@ -189,7 +190,7 @@
         /* --- Expertise --- */
         .expertise-grid {
             display: flex;
-            gap: 20px;
+            gap: 15px; /* Tightened */
             flex-wrap: wrap;
             justify-content: center;
             width: 100%;
@@ -200,7 +201,7 @@
             font-size: 1.4rem;
             font-weight: 800;
             background: var(--bg-card);
-            padding: 25px 45px;
+            padding: 20px 40px; /* Tightened */
             border-radius: 12px;
             border: 1px solid rgba(0, 210, 255, 0.2); 
             box-shadow: inset 0 0 10px rgba(0, 210, 255, 0.05);
@@ -234,8 +235,8 @@
 
         .timeline-item {
             position: relative;
-            padding-left: 60px;
-            margin-bottom: 60px;
+            padding-left: 55px;
+            margin-bottom: 40px; /* Tightened */
         }
 
         .timeline-item::before {
@@ -253,14 +254,14 @@
         .edu-title {
             font-size: 1.6rem;
             font-weight: 900;
-            margin-bottom: 5px;
+            margin-bottom: 2px; /* Tightened */
         }
 
         .edu-subtitle {
             font-size: 1.1rem;
             color: var(--accent-cyan);
             font-weight: 700;
-            margin-bottom: 8px;
+            margin-bottom: 5px; /* Tightened */
             text-transform: uppercase;
             letter-spacing: 1px;
             text-shadow: var(--glow-cyan);
@@ -275,20 +276,20 @@
         #contact {
             background: var(--bg-card);
             text-align: center;
-            padding: 160px 5%;
+            padding: 90px 5%; /* Tightened */
             box-shadow: inset 0 10px 30px rgba(0, 0, 0, 0.5);
         }
 
         .huge-text {
-            font-size: 7rem;
+            font-size: 6rem; /* Slightly reduced to fit tighter space */
             font-weight: 900;
             letter-spacing: -3px;
-            margin-bottom: 60px;
+            margin-bottom: 30px; /* Tightened */
         }
 
         .contact-links {
             display: flex;
-            gap: 40px;
+            gap: 30px; /* Tightened */
             justify-content: center;
             flex-wrap: wrap;
         }
@@ -314,10 +315,13 @@
             .hero-title { font-size: 3.5rem; }
             .hero-subtitle { font-size: 2.8rem; }
             .huge-text { font-size: 4rem; }
-            .nav-links { display: none; }
-            nav { justify-content: center; }
-            .expertise-item { font-size: 1.2rem; padding: 20px 30px; }
-            .avatar-container { width: 100%; max-width: 600px; height: auto; aspect-ratio: 5/6; }
+            
+            nav { flex-direction: column; gap: 10px; padding-bottom: 10px; }
+            .nav-links { gap: 15px; flex-wrap: wrap; justify-content: center; }
+            .nav-links a { font-size: 0.8rem; }
+            
+            .expertise-item { font-size: 1.2rem; padding: 15px 25px; }
+            .avatar-container { width: 100%; max-width: 500px; }
         }
     </style>
 </head>
