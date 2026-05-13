@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mani | The SIP Guy</title>
+    <style>
+        /* CSS Variables for a Sleek, Premium Dark-Blue & Gold Layout */
+        :root {
+            --bg-dark: #0B132B;
+            --bg-card: #1A233A;
+            --text-main: #FFFFFF;
+            --text-muted: #8A94A6;
+            --accent-gold: #D4AF37;
+            --transition-speed: 0.6s;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* --- Animations & Transitions --- */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity var(--transition-speed) ease-out, transform var(--transition-speed) ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- Navigation --- */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(11, 19, 43, 0.9);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: var(--accent-gold);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: var(--text-main);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-gold);
+        }
+
+        /* --- Hero Section --- */
+        #home {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 100px 20px 50px;
+        }
+
+        .avatar-container {
+            width: 200px;
+            height: 250px;
+            margin-bottom: 30px;
+            /* Placeholder styling. Ensure your final image is a transparent PNG with no white background */
+            background: transparent; 
+        }
+
+        .avatar-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .hero-title {
+            font-size: 5rem;
+            font-weight: 900;
+            line-height: 1;
+            margin-bottom: 10px;
+            letter-spacing: -2px;
+        }
+
+        .hero-subtitle {
+            font-size: 4rem;
+            font-weight: 900;
+            color: var(--accent-gold);
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+        }
+
+        .hero-desc {
+            max-width: 600px;
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        /* --- Sections --- */
+        section {
+            padding: 100px 5%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 50px;
+            text-transform: uppercase;
+        }
+
+        .section-title span {
+            color: var(--accent-gold);
+        }
+
+        /* --- Expertise --- */
+        .expertise-grid {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+            width: 100%;
+            max-width: 1000px;
+        }
+
+        .expertise-item {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: var(--bg-card);
+            padding: 20px 40px;
+            border-radius: 8px;
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+
+        .expertise-item:hover {
+            transform: scale(1.05);
+            background: var(--accent-gold);
+            color: var(--bg-dark);
+        }
+
+        /* --- Education Timeline --- */
+        .timeline {
+            max-width: 800px;
+            width: 100%;
+            position: relative;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 20px;
+            top: 0;
+            height: 100%;
+            width: 2px;
+            background: #2A3655;
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 60px;
+            margin-bottom: 50px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 14px;
+            top: 5px;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: var(--accent-gold);
+        }
+
+        .edu-title {
+            font-size: 1.4rem;
+            font-weight: 800;
+            margin-bottom: 5px;
+        }
+
+        .edu-subtitle {
+            font-size: 1rem;
+            color: var(--accent-gold);
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .edu-desc {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* --- Contact --- */
+        #contact {
+            background: var(--bg-card);
+            text-align: center;
+            padding: 120px 5%;
+        }
+
+        .huge-text {
+            font-size: 6rem;
+            font-weight: 900;
+            letter-spacing: -2px;
+            margin-bottom: 40px;
+        }
+
+        .contact-links {
+            display: flex;
+            gap: 40px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .contact-links a {
+            color: var(--text-main);
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: 700;
+            transition: color 0.3s;
+        }
+
+        .contact-links a:hover {
+            color: var(--accent-gold);
+        }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 768px) {
+            .hero-title { font-size: 3rem; }
+            .hero-subtitle { font-size: 2.5rem; }
+            .huge-text { font-size: 3.5rem; }
+            .nav-links { display: none; /* Can be replaced with a hamburger menu later */ }
+            nav { justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">MANI<span>.</span></div>
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#expertise">Expertise</a>
+            <a href="#education">Education</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <header id="home">
+        <div class="avatar-container fade-in">
+            <!-- Replace the src below with the actual avatar image file. Make sure it is a transparent PNG -->
+            <img src="avatar-placeholder.png" alt="Mani Avatar" style="width: 100%; height: auto;">
+        </div>
+        <h1 class="hero-title fade-in">HI, I'M MANI</h1>
+        <h2 class="hero-subtitle fade-in">THE SIP GUY</h2>
+        <p class="hero-desc fade-in">
+            I am an independent financial advisor and solo entrepreneur. With a strong foundation in operations and engineering, I specialize in navigating the complexities of SIPs and Mutual Funds to engineer strategic wealth generation for my clients.
+        </p>
+    </header>
+
+    <section id="expertise">
+        <h2 class="section-title fade-in">MY <span>EXPERTISE</span></h2>
+        <div class="expertise-grid">
+            <div class="expertise-item fade-in">SIP STRATEGY</div>
+            <div class="expertise-item fade-in">MUTUAL FUNDS</div>
+            <div class="expertise-item fade-in">WEALTH MANAGEMENT</div>
+            <div class="expertise-item fade-in">FINANCIAL PLANNING</div>
+            <div class="expertise-item fade-in">PORTFOLIO OPTIMIZATION</div>
+        </div>
+    </section>
+
+    <section id="education">
+        <h2 class="section-title fade-in">EDUCATION <span>JOURNEY</span></h2>
+        <div class="timeline">
+            <div class="timeline-item fade-in">
+                <div class="edu-title">MBA IN OPERATIONS</div>
+                <div class="edu-subtitle">IGNOU</div>
+                <div class="edu-desc">Master of Business Administration focusing on operational efficiency and strategic management.</div>
+            </div>
+            <div class="timeline-item fade-in">
+                <div class="edu-title">B.E. IN MECHANICAL ENGINEERING</div>
+                <div class="edu-subtitle">AMBEDKAR INSTITUTE OF TECHNOLOGY, BANGALORE</div>
+                <div class="edu-desc">Bachelor of Engineering, establishing a strong foundation in analytical thinking and systematic problem-solving.</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2 class="huge-text fade-in">LET'S CONNECT</h2>
+        <div class="contact-links fade-in">
+            <a href="tel:+919886404055">PHONE - 9886404055</a>
+            <a href="mailto:manikantanv@yahoo.com">EMAIL - MANIKANTANV@YAHOO.COM</a>
+        </div>
+    </section>
+
+    <script>
+        // JavaScript for Smooth Scroll Fade-In Transitions
+        document.addEventListener('DOMContentLoaded', () => {
+            const faders = document.querySelectorAll('.fade-in');
+
+            const appearOptions = {
+                threshold: 0.15,
+                rootMargin: "0px 0px -50px 0px"
+            };
+
+            const appearOnScroll = new IntersectionObserver(function(entries, observer) {
+                entries.forEach(entry => {
+                    if (!entry.isIntersecting) {
+                        return;
+                    } else {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, appearOptions);
+
+            faders.forEach(fader => {
+                appearOnScroll.observe(fader);
+            });
+            
+            // Trigger visible class on elements already in viewport on load
+            setTimeout(() => {
+                faders.forEach(fader => {
+                    const rect = fader.getBoundingClientRect();
+                    if(rect.top < window.innerHeight) {
+                        fader.classList.add('visible');
+                    }
+                });
+            }, 100);
+        });
+    </script>
+</body>
+</html>
