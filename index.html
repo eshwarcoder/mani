@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mani | The SIP Guy</title>
     <style>
-        /* CSS Variables for a Sleek, Premium Dark-Blue & Gold Layout */
+        /* CSS Variables for a Sleek, Modern Neon Blue Layout */
         :root {
             --bg-dark: #0B132B;
             --bg-card: #1A233A;
             --text-main: #FFFFFF;
             --text-muted: #8A94A6;
-            --accent-gold: #D4AF37;
-            --transition-speed: 0.6s;
+            --accent-blue: #00E5FF; /* Bright Neon Blue */
+            --transition-speed: 0.8s;
         }
 
         * {
@@ -29,16 +29,24 @@
             overflow-x: hidden;
         }
 
-        /* --- Animations & Transitions --- */
+        /* --- Modern Animations & Transitions --- */
         .fade-in {
             opacity: 0;
-            transform: translateY(30px);
-            transition: opacity var(--transition-speed) ease-out, transform var(--transition-speed) ease-out;
+            transform: translateY(40px) scale(0.95);
+            transition: opacity var(--transition-speed) cubic-bezier(0.16, 1, 0.3, 1), 
+                        transform var(--transition-speed) cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .fade-in.visible {
             opacity: 1;
-            transform: translateY(0);
+            transform: translateY(0) scale(1);
+        }
+
+        /* Floating Animation for Avatar */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
         }
 
         /* --- Navigation --- */
@@ -50,19 +58,20 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: rgba(11, 19, 43, 0.9);
-            backdrop-filter: blur(10px);
+            background: rgba(11, 19, 43, 0.85);
+            backdrop-filter: blur(12px);
             z-index: 1000;
         }
 
         .logo {
             font-size: 1.5rem;
-            font-weight: 800;
+            font-weight: 900;
             letter-spacing: 1px;
+            color: var(--text-main);
         }
 
         .logo span {
-            color: var(--accent-gold);
+            color: var(--accent-blue);
         }
 
         .nav-links {
@@ -74,14 +83,15 @@
             color: var(--text-main);
             text-decoration: none;
             font-size: 0.9rem;
-            font-weight: 600;
+            font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 1px;
-            transition: color 0.3s;
+            transition: color 0.3s ease, transform 0.3s ease;
         }
 
         .nav-links a:hover {
-            color: var(--accent-gold);
+            color: var(--accent-blue);
+            transform: translateY(-2px);
         }
 
         /* --- Hero Section --- */
@@ -92,15 +102,16 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 100px 20px 50px;
+            padding: 120px 20px 50px;
         }
 
         .avatar-container {
-            width: 200px;
-            height: 250px;
+            width: 220px;
+            height: 270px;
             margin-bottom: 30px;
-            /* Placeholder styling. Ensure your final image is a transparent PNG with no white background */
-            background: transparent; 
+            background: transparent;
+            /* Applying the float animation */
+            animation: float 4s ease-in-out infinite;
         }
 
         .avatar-container img {
@@ -110,25 +121,26 @@
         }
 
         .hero-title {
-            font-size: 5rem;
+            font-size: 5.5rem;
             font-weight: 900;
             line-height: 1;
             margin-bottom: 10px;
             letter-spacing: -2px;
+            color: var(--text-main);
         }
 
         .hero-subtitle {
-            font-size: 4rem;
+            font-size: 4.5rem;
             font-weight: 900;
-            color: var(--accent-gold);
-            margin-bottom: 20px;
+            color: var(--accent-blue);
+            margin-bottom: 25px;
             letter-spacing: -1px;
         }
 
         .hero-desc {
-            max-width: 600px;
+            max-width: 650px;
             color: var(--text-muted);
-            font-size: 1.1rem;
+            font-size: 1.15rem;
         }
 
         /* --- Sections --- */
@@ -140,14 +152,16 @@
         }
 
         .section-title {
-            font-size: 2.5rem;
-            font-weight: 800;
-            margin-bottom: 50px;
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 60px;
             text-transform: uppercase;
+            letter-spacing: -1px;
+            color: var(--text-main);
         }
 
         .section-title span {
-            color: var(--accent-gold);
+            color: var(--accent-blue);
         }
 
         /* --- Expertise --- */
@@ -161,17 +175,18 @@
         }
 
         .expertise-item {
-            font-size: 1.5rem;
-            font-weight: 700;
+            font-size: 1.4rem;
+            font-weight: 800;
             background: var(--bg-card);
-            padding: 20px 40px;
-            border-radius: 8px;
-            transition: transform 0.3s ease, background 0.3s ease;
+            color: var(--accent-blue);
+            padding: 25px 45px;
+            border-radius: 12px;
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), background 0.4s ease;
         }
 
         .expertise-item:hover {
-            transform: scale(1.05);
-            background: var(--accent-gold);
+            transform: scale(1.08) translateY(-10px);
+            background: var(--accent-blue);
             color: var(--bg-dark);
         }
 
@@ -188,57 +203,62 @@
             left: 20px;
             top: 0;
             height: 100%;
-            width: 2px;
+            width: 3px;
             background: #2A3655;
+            border-radius: 5px;
         }
 
         .timeline-item {
             position: relative;
             padding-left: 60px;
-            margin-bottom: 50px;
+            margin-bottom: 60px;
         }
 
         .timeline-item::before {
             content: '';
             position: absolute;
-            left: 14px;
-            top: 5px;
-            width: 14px;
-            height: 14px;
+            left: 13px;
+            top: 6px;
+            width: 16px;
+            height: 16px;
             border-radius: 50%;
-            background: var(--accent-gold);
+            background: var(--accent-blue);
         }
 
         .edu-title {
-            font-size: 1.4rem;
-            font-weight: 800;
+            font-size: 1.5rem;
+            font-weight: 900;
             margin-bottom: 5px;
+            color: var(--text-main);
         }
 
         .edu-subtitle {
-            font-size: 1rem;
-            color: var(--accent-gold);
-            font-weight: 600;
-            margin-bottom: 5px;
+            font-size: 1.1rem;
+            color: var(--accent-blue);
+            font-weight: 700;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .edu-desc {
             color: var(--text-muted);
-            font-size: 0.95rem;
+            font-size: 1rem;
         }
 
         /* --- Contact --- */
         #contact {
             background: var(--bg-card);
             text-align: center;
-            padding: 120px 5%;
+            padding: 140px 5%;
         }
 
         .huge-text {
-            font-size: 6rem;
+            font-size: 6.5rem;
             font-weight: 900;
-            letter-spacing: -2px;
-            margin-bottom: 40px;
+            letter-spacing: -3px;
+            margin-bottom: 50px;
+            color: var(--text-main);
         }
 
         .contact-links {
@@ -249,24 +269,27 @@
         }
 
         .contact-links a {
-            color: var(--text-main);
+            color: var(--accent-blue);
             text-decoration: none;
-            font-size: 1.2rem;
-            font-weight: 700;
-            transition: color 0.3s;
+            font-size: 1.3rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            transition: transform 0.3s ease, color 0.3s ease;
         }
 
         .contact-links a:hover {
-            color: var(--accent-gold);
+            color: var(--text-main);
+            transform: translateY(-5px);
         }
 
         /* --- Responsive Design --- */
         @media (max-width: 768px) {
-            .hero-title { font-size: 3rem; }
-            .hero-subtitle { font-size: 2.5rem; }
-            .huge-text { font-size: 3.5rem; }
-            .nav-links { display: none; /* Can be replaced with a hamburger menu later */ }
+            .hero-title { font-size: 3.5rem; }
+            .hero-subtitle { font-size: 2.8rem; }
+            .huge-text { font-size: 4rem; }
+            .nav-links { display: none; }
             nav { justify-content: center; }
+            .expertise-item { font-size: 1.2rem; padding: 20px 30px; }
         }
     </style>
 </head>
@@ -284,8 +307,7 @@
 
     <header id="home">
         <div class="avatar-container fade-in">
-            <!-- Replace the src below with the actual avatar image file. Make sure it is a transparent PNG -->
-            <img src="avatar-placeholder.png" alt="Mani Avatar" style="width: 100%; height: auto;">
+            <img src="dad-avatar.png" alt="Mani Avatar">
         </div>
         <h1 class="hero-title fade-in">HI, I'M MANI</h1>
         <h2 class="hero-subtitle fade-in">THE SIP GUY</h2>
@@ -330,21 +352,24 @@
     </section>
 
     <script>
-        // JavaScript for Smooth Scroll Fade-In Transitions
+        // Upgraded JavaScript for Staggered, Smooth Scroll Fade-In Transitions
         document.addEventListener('DOMContentLoaded', () => {
             const faders = document.querySelectorAll('.fade-in');
 
             const appearOptions = {
-                threshold: 0.15,
+                threshold: 0.1,
                 rootMargin: "0px 0px -50px 0px"
             };
 
             const appearOnScroll = new IntersectionObserver(function(entries, observer) {
-                entries.forEach(entry => {
+                entries.forEach((entry, index) => {
                     if (!entry.isIntersecting) {
                         return;
                     } else {
-                        entry.target.classList.add('visible');
+                        // Add a slight delay based on index for a staggered "modern" reveal
+                        setTimeout(() => {
+                            entry.target.classList.add('visible');
+                        }, index * 50); 
                         observer.unobserve(entry.target);
                     }
                 });
@@ -354,12 +379,14 @@
                 appearOnScroll.observe(fader);
             });
             
-            // Trigger visible class on elements already in viewport on load
+            // Trigger visible class immediately for above-the-fold content
             setTimeout(() => {
-                faders.forEach(fader => {
+                faders.forEach((fader, index) => {
                     const rect = fader.getBoundingClientRect();
                     if(rect.top < window.innerHeight) {
-                        fader.classList.add('visible');
+                        setTimeout(() => {
+                            fader.classList.add('visible');
+                        }, index * 100); // Stagger the initial load too
                     }
                 });
             }, 100);
