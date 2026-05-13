@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mani | The SIP Guy</title>
     <style>
-        /* CSS Variables for a Clean, Modern Layout */
+        /* CSS Variables for a Modern Neon Glow Layout */
         :root {
             --bg-dark: #050A1A; 
             --bg-card: #11182B;
@@ -13,6 +13,9 @@
             --text-muted: #8A94A6;
             --accent-cyan: #00D2FF; 
             --transition-speed: 0.8s;
+            /* Subtle neon text glow */
+            --glow-cyan: 0 0 5px rgba(0, 210, 255, 0.4), 0 0 10px rgba(0, 210, 255, 0.2);
+            --glow-white: 0 0 5px rgba(255, 255, 255, 0.4), 0 0 10px rgba(255, 255, 255, 0.2);
         }
 
         * {
@@ -50,13 +53,15 @@
             50% { transform: translateY(-20px); }
         }
 
-        /* Clean Text Utility Classes */
+        /* Neon Glow Utility Classes */
         .text-cyan {
             color: var(--accent-cyan);
+            text-shadow: var(--glow-cyan);
         }
 
         .text-white {
             color: var(--text-main);
+            text-shadow: var(--glow-white);
         }
 
         /* --- Navigation --- */
@@ -78,10 +83,12 @@
             font-weight: 900;
             letter-spacing: 1px;
             color: var(--text-main);
+            text-shadow: var(--glow-white);
         }
 
         .logo span {
             color: var(--accent-cyan);
+            text-shadow: var(--glow-cyan);
         }
 
         .nav-links {
@@ -97,11 +104,13 @@
             text-transform: uppercase;
             letter-spacing: 1px;
             transition: all 0.3s ease;
+            text-shadow: var(--glow-white);
         }
 
         .nav-links a:hover {
             color: var(--accent-cyan);
             transform: translateY(-2px);
+            text-shadow: var(--glow-cyan);
         }
 
         /* --- Hero Section --- */
@@ -116,11 +125,14 @@
         }
 
         .avatar-container {
-            width: 250px;
-            height: 300px;
+            /* Increased Size */
+            width: 320px;
+            height: 380px;
             margin-bottom: 40px;
             background: transparent;
             animation: float 5s ease-in-out infinite;
+            /* Added drop-shadow glow to the image itself */
+            filter: drop-shadow(0 0 15px rgba(0, 210, 255, 0.5));
         }
 
         .avatar-container img {
@@ -169,6 +181,7 @@
 
         .section-title span {
             color: var(--accent-cyan);
+            text-shadow: var(--glow-cyan);
         }
 
         /* --- Expertise --- */
@@ -187,14 +200,16 @@
             background: var(--bg-card);
             padding: 25px 45px;
             border-radius: 12px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(0, 210, 255, 0.2); /* Added subtle neon border */
+            box-shadow: inset 0 0 10px rgba(0, 210, 255, 0.05);
             transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .expertise-item:hover {
             transform: scale(1.05) translateY(-5px);
-            background: var(--accent-cyan);
-            color: var(--bg-dark);
+            background: rgba(0, 210, 255, 0.1); /* Subtle hover highlight */
+            border-color: var(--accent-cyan);
+            box-shadow: 0 0 20px rgba(0, 210, 255, 0.3);
         }
 
         /* --- Education Timeline --- */
@@ -230,6 +245,7 @@
             height: 16px;
             border-radius: 50%;
             background: var(--accent-cyan);
+            box-shadow: 0 0 10px var(--accent-cyan);
         }
 
         .edu-title {
@@ -245,6 +261,7 @@
             margin-bottom: 8px;
             text-transform: uppercase;
             letter-spacing: 1px;
+            text-shadow: var(--glow-cyan);
         }
 
         .edu-desc {
@@ -257,6 +274,7 @@
             background: var(--bg-card);
             text-align: center;
             padding: 160px 5%;
+            box-shadow: inset 0 10px 30px rgba(0, 0, 0, 0.5);
         }
 
         .huge-text {
@@ -280,11 +298,13 @@
             letter-spacing: 1px;
             transition: all 0.3s ease;
             color: var(--accent-cyan);
+            text-shadow: var(--glow-cyan);
         }
 
         .contact-links a:hover {
             color: var(--text-main);
             transform: translateY(-5px);
+            text-shadow: var(--glow-white);
         }
 
         /* --- Responsive Design --- */
@@ -295,7 +315,7 @@
             .nav-links { display: none; }
             nav { justify-content: center; }
             .expertise-item { font-size: 1.2rem; padding: 20px 30px; }
-            .avatar-container { width: 200px; height: 250px; }
+            .avatar-container { width: 250px; height: 300px; }
         }
     </style>
 </head>
@@ -313,7 +333,8 @@
 
     <header id="home">
         <div class="avatar-container fade-in visible">
-            <img src="https://i.postimg.cc/jdV1XZjC/Gemini-Generated-Image-m7w4tkm7w4tkm7w4.png" alt="Mani Avatar">
+            <!-- Using the newly provided link -->
+            <img src="https://i.postimg.cc/G2yWLN2n/Gemini-Generated-Image-af1xn1af1xn1af1x.png" alt="Mani Avatar">
         </div>
         <h1 class="hero-title text-white fade-in visible">HI, I'M MANI</h1>
         <h2 class="hero-subtitle text-cyan fade-in visible">THE SIP GUY</h2>
