@@ -5,13 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mani | The SIP Guy</title>
     <style>
-        /* CSS Variables for a Modern Neon Blue Layout */
+        /* CSS Variables for a Clean, Modern Layout */
         :root {
-            --bg-dark: #050A1A; /* Deeper dark for neon contrast */
+            --bg-dark: #050A1A; 
             --bg-card: #11182B;
             --text-main: #FFFFFF;
             --text-muted: #8A94A6;
-            --accent-cyan: #00D2FF; /* Bright Neon Cyan */
+            --accent-cyan: #00D2FF; 
             --transition-speed: 0.8s;
         }
 
@@ -27,7 +27,6 @@
             color: var(--text-main);
             line-height: 1.6;
             overflow-x: hidden;
-            /* Added depth with stars background to match avatar style */
             background-image: radial-gradient(#1B3A69 1px, transparent 1px);
             background-size: 50px 50px;
         }
@@ -51,15 +50,13 @@
             50% { transform: translateY(-20px); }
         }
 
-        /* Neon Glow Utility Classes */
-        .neon-text-cyan {
+        /* Clean Text Utility Classes */
+        .text-cyan {
             color: var(--accent-cyan);
-            text-shadow: 0 0 5px var(--accent-cyan), 0 0 10px var(--accent-cyan), 0 0 20px var(--accent-cyan);
         }
 
-        .neon-text-white {
+        .text-white {
             color: var(--text-main);
-            text-shadow: 0 0 5px var(--text-main), 0 0 10px var(--text-main), 0 0 20px var(--accent-cyan);
         }
 
         /* --- Navigation --- */
@@ -71,7 +68,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: rgba(5, 10, 26, 0.8);
+            background: rgba(5, 10, 26, 0.9);
             backdrop-filter: blur(15px);
             z-index: 1000;
         }
@@ -81,7 +78,6 @@
             font-weight: 900;
             letter-spacing: 1px;
             color: var(--text-main);
-            text-shadow: 0 0 5px var(--text-main), 0 0 10px var(--accent-cyan);
         }
 
         .logo span {
@@ -106,7 +102,6 @@
         .nav-links a:hover {
             color: var(--accent-cyan);
             transform: translateY(-2px);
-            text-shadow: 0 0 5px var(--accent-cyan);
         }
 
         /* --- Hero Section --- */
@@ -125,9 +120,7 @@
             height: 300px;
             margin-bottom: 40px;
             background: transparent;
-            /* Applied the modern floating animation */
             animation: float 5s ease-in-out infinite;
-            filter: drop-shadow(0 0 15px rgba(0, 210, 255, 0.4));
         }
 
         .avatar-container img {
@@ -194,16 +187,14 @@
             background: var(--bg-card);
             padding: 25px 45px;
             border-radius: 12px;
-            border: 1px solid rgba(0, 210, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.05);
             transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .expertise-item:hover {
-            transform: scale(1.08) translateY(-10px);
+            transform: scale(1.05) translateY(-5px);
             background: var(--accent-cyan);
             color: var(--bg-dark);
-            text-shadow: none;
-            box-shadow: 0 10px 30px rgba(0, 210, 255, 0.5);
         }
 
         /* --- Education Timeline --- */
@@ -219,10 +210,9 @@
             left: 20px;
             top: 0;
             height: 100%;
-            width: 3px;
+            width: 2px;
             background: var(--bg-card);
             border-radius: 5px;
-            box-shadow: 0 0 10px var(--accent-cyan);
         }
 
         .timeline-item {
@@ -234,13 +224,12 @@
         .timeline-item::before {
             content: '';
             position: absolute;
-            left: 11px;
+            left: 13px;
             top: 6px;
-            width: 20px;
-            height: 20px;
+            width: 16px;
+            height: 16px;
             border-radius: 50%;
             background: var(--accent-cyan);
-            box-shadow: 0 0 15px var(--accent-cyan);
         }
 
         .edu-title {
@@ -290,12 +279,12 @@
             font-weight: 800;
             letter-spacing: 1px;
             transition: all 0.3s ease;
+            color: var(--accent-cyan);
         }
 
         .contact-links a:hover {
             color: var(--text-main);
             transform: translateY(-5px);
-            text-shadow: 0 0 5px var(--text-main);
         }
 
         /* --- Responsive Design --- */
@@ -324,37 +313,36 @@
 
     <header id="home">
         <div class="avatar-container fade-in visible">
-            <!-- Directly linked to the user-provided URL -->
             <img src="https://i.postimg.cc/YqSnrZjb/Gemini-Generated-Image-qjrttpqjrttpqjrt.png" alt="Mani Avatar">
         </div>
-        <h1 class="hero-title neon-text-white fade-in visible">HI, I'M MANI</h1>
-        <h2 class="hero-subtitle neon-text-cyan fade-in visible">THE SIP GUY</h2>
+        <h1 class="hero-title text-white fade-in visible">HI, I'M MANI</h1>
+        <h2 class="hero-subtitle text-cyan fade-in visible">THE SIP GUY</h2>
         <p class="hero-desc fade-in visible">
             I am an independent financial advisor and solo entrepreneur. With a strong foundation in operations and engineering, I specialize in navigating the complexities of SIPs and Mutual Funds to engineer strategic wealth generation for my clients.
         </p>
     </header>
 
     <section id="expertise">
-        <h2 class="section-title neon-text-white fade-in">MY <span>EXPERTISE</span></h2>
+        <h2 class="section-title text-white fade-in">MY <span>EXPERTISE</span></h2>
         <div class="expertise-grid">
-            <div class="expertise-item neon-text-cyan fade-in">SIP STRATEGY</div>
-            <div class="expertise-item neon-text-cyan fade-in">MUTUAL FUNDS</div>
-            <div class="expertise-item neon-text-cyan fade-in">WEALTH MANAGEMENT</div>
-            <div class="expertise-item neon-text-cyan fade-in">FINANCIAL PLANNING</div>
-            <div class="expertise-item neon-text-cyan fade-in">PORTFOLIO OPTIMIZATION</div>
+            <div class="expertise-item text-cyan fade-in">SIP STRATEGY</div>
+            <div class="expertise-item text-cyan fade-in">MUTUAL FUNDS</div>
+            <div class="expertise-item text-cyan fade-in">WEALTH MANAGEMENT</div>
+            <div class="expertise-item text-cyan fade-in">FINANCIAL PLANNING</div>
+            <div class="expertise-item text-cyan fade-in">PORTFOLIO OPTIMIZATION</div>
         </div>
     </section>
 
     <section id="education">
-        <h2 class="section-title neon-text-white fade-in">EDUCATION <span>JOURNEY</span></h2>
+        <h2 class="section-title text-white fade-in">EDUCATION <span>JOURNEY</span></h2>
         <div class="timeline">
             <div class="timeline-item fade-in">
-                <div class="edu-title neon-text-white">MBA IN OPERATIONS</div>
+                <div class="edu-title text-white">MBA IN OPERATIONS</div>
                 <div class="edu-subtitle">IGNOU</div>
                 <div class="edu-desc">Master of Business Administration focusing on operational efficiency and strategic management.</div>
             </div>
             <div class="timeline-item fade-in">
-                <div class="edu-title neon-text-white">B.E. IN MECHANICAL ENGINEERING</div>
+                <div class="edu-title text-white">B.E. IN MECHANICAL ENGINEERING</div>
                 <div class="edu-subtitle">AMBEDKAR INSTITUTE OF TECHNOLOGY, BANGALORE</div>
                 <div class="edu-desc">Bachelor of Engineering, establishing a strong foundation in analytical thinking and systematic problem-solving.</div>
             </div>
@@ -362,19 +350,17 @@
     </section>
 
     <section id="contact">
-        <h2 class="huge-text neon-text-white fade-in">LET'S CONNECT</h2>
+        <h2 class="huge-text text-white fade-in">LET'S CONNECT</h2>
         <div class="contact-links fade-in">
-            <a href="tel:+919886404055" class="neon-text-cyan">PHONE - 9886404055</a>
-            <a href="mailto:manikantanv@yahoo.com" class="neon-text-cyan">EMAIL - MANIKANTANV@YAHOO.COM</a>
+            <a href="tel:+919886404055">PHONE - 9886404055</a>
+            <a href="mailto:manikantanv@yahoo.com">EMAIL - MANIKANTANV@YAHOO.COM</a>
         </div>
     </section>
 
     <script>
-        // Upgraded JavaScript for Staggered, Smooth Scroll Fade-In Transitions
         document.addEventListener('DOMContentLoaded', () => {
             const faders = document.querySelectorAll('.fade-in');
 
-            // Apply visible immediately for elements already near the top on page load
             faders.forEach(fader => {
                 const rect = fader.getBoundingClientRect();
                 if(rect.top < window.innerHeight * 0.9) {
@@ -392,7 +378,6 @@
                     if (!entry.isIntersecting) {
                         return;
                     } else {
-                        // Add a subtle staggered delay for the modern feel
                         setTimeout(() => {
                             entry.target.classList.add('visible');
                         }, index * 40); 
