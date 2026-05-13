@@ -125,9 +125,11 @@
         }
 
         .avatar-container {
-            /* Significantly Increased Size */
-            width: 400px;
-            height: 480px;
+            /* Doubled Size */
+            width: 800px;
+            height: 960px;
+            max-width: 100%; /* Keeps it from breaking smaller screens */
+            max-height: 85vh; /* Prevents it from being taller than the screen */
             margin-bottom: 40px;
             background: transparent;
             animation: float 5s ease-in-out infinite;
@@ -315,7 +317,7 @@
             .nav-links { display: none; }
             nav { justify-content: center; }
             .expertise-item { font-size: 1.2rem; padding: 20px 30px; }
-            .avatar-container { width: 300px; height: 360px; }
+            .avatar-container { width: 100%; max-width: 600px; height: auto; aspect-ratio: 5/6; }
         }
     </style>
 </head>
@@ -333,13 +335,12 @@
 
     <header id="home">
         <div class="avatar-container fade-in visible">
-            <!-- New Background-Removed Link -->
             <img src="https://i.postimg.cc/WbkdRbjG/Gemini-Generated-Image-af1xn1af1xn1af1x-removebg-preview-(3).png" alt="Mani Avatar">
         </div>
         <h1 class="hero-title text-white fade-in visible">HI, I'M MANI</h1>
         <h2 class="hero-subtitle text-cyan fade-in visible">THE SIP GUY</h2>
         <p class="hero-desc fade-in visible">
-            I am an independent financial advisor and solo entrepreneur. With a strong foundation in operations and engineering, I specialize in navigating the complexities of SIPs and Mutual Funds to engineer strategic wealth generation for my clients.
+            I am a certified financial advisor and solo entrepreneur. With a strong foundation in operations and engineering, I specialize in navigating the complexities of SIPs and Mutual Funds to engineer strategic wealth generation for my clients.
         </p>
     </header>
 
