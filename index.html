@@ -5,13 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mani | The SIP Guy</title>
     <style>
-        /* CSS Variables for a Sleek, Modern Neon Blue Layout */
+        /* CSS Variables for a Modern Neon Blue Layout */
         :root {
-            --bg-dark: #0B132B;
-            --bg-card: #1A233A;
+            --bg-dark: #050A1A; /* Deeper dark for neon contrast */
+            --bg-card: #11182B;
             --text-main: #FFFFFF;
             --text-muted: #8A94A6;
-            --accent-blue: #00E5FF; /* Bright Neon Blue */
+            --accent-cyan: #00D2FF; /* Bright Neon Cyan */
             --transition-speed: 0.8s;
         }
 
@@ -27,9 +27,12 @@
             color: var(--text-main);
             line-height: 1.6;
             overflow-x: hidden;
+            /* Added depth with stars background to match avatar style */
+            background-image: radial-gradient(#1B3A69 1px, transparent 1px);
+            background-size: 50px 50px;
         }
 
-        /* --- Modern Animations & Transitions --- */
+        /* --- Modern Scroll Animations --- */
         .fade-in {
             opacity: 0;
             transform: translateY(40px) scale(0.95);
@@ -42,11 +45,21 @@
             transform: translateY(0) scale(1);
         }
 
-        /* Floating Animation for Avatar */
+        /* Float Animation Keyframes */
         @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-15px); }
-            100% { transform: translateY(0px); }
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        /* Neon Glow Utility Classes */
+        .neon-text-cyan {
+            color: var(--accent-cyan);
+            text-shadow: 0 0 5px var(--accent-cyan), 0 0 10px var(--accent-cyan), 0 0 20px var(--accent-cyan);
+        }
+
+        .neon-text-white {
+            color: var(--text-main);
+            text-shadow: 0 0 5px var(--text-main), 0 0 10px var(--text-main), 0 0 20px var(--accent-cyan);
         }
 
         /* --- Navigation --- */
@@ -58,8 +71,8 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: rgba(11, 19, 43, 0.85);
-            backdrop-filter: blur(12px);
+            background: rgba(5, 10, 26, 0.8);
+            backdrop-filter: blur(15px);
             z-index: 1000;
         }
 
@@ -68,10 +81,11 @@
             font-weight: 900;
             letter-spacing: 1px;
             color: var(--text-main);
+            text-shadow: 0 0 5px var(--text-main), 0 0 10px var(--accent-cyan);
         }
 
         .logo span {
-            color: var(--accent-blue);
+            color: var(--accent-cyan);
         }
 
         .nav-links {
@@ -86,12 +100,13 @@
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 1px;
-            transition: color 0.3s ease, transform 0.3s ease;
+            transition: all 0.3s ease;
         }
 
         .nav-links a:hover {
-            color: var(--accent-blue);
+            color: var(--accent-cyan);
             transform: translateY(-2px);
+            text-shadow: 0 0 5px var(--accent-cyan);
         }
 
         /* --- Hero Section --- */
@@ -102,16 +117,17 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 120px 20px 50px;
+            padding: 140px 20px 50px;
         }
 
         .avatar-container {
-            width: 220px;
-            height: 270px;
-            margin-bottom: 30px;
+            width: 250px;
+            height: 300px;
+            margin-bottom: 40px;
             background: transparent;
-            /* Applying the float animation */
-            animation: float 4s ease-in-out infinite;
+            /* Applied the modern floating animation */
+            animation: float 5s ease-in-out infinite;
+            filter: drop-shadow(0 0 15px rgba(0, 210, 255, 0.4));
         }
 
         .avatar-container img {
@@ -126,26 +142,25 @@
             line-height: 1;
             margin-bottom: 10px;
             letter-spacing: -2px;
-            color: var(--text-main);
         }
 
         .hero-subtitle {
             font-size: 4.5rem;
             font-weight: 900;
-            color: var(--accent-blue);
-            margin-bottom: 25px;
+            margin-bottom: 30px;
             letter-spacing: -1px;
         }
 
         .hero-desc {
             max-width: 650px;
             color: var(--text-muted);
-            font-size: 1.15rem;
+            font-size: 1.2rem;
+            margin-bottom: 40px;
         }
 
         /* --- Sections --- */
         section {
-            padding: 100px 5%;
+            padding: 120px 5%;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -157,11 +172,10 @@
             margin-bottom: 60px;
             text-transform: uppercase;
             letter-spacing: -1px;
-            color: var(--text-main);
         }
 
         .section-title span {
-            color: var(--accent-blue);
+            color: var(--accent-cyan);
         }
 
         /* --- Expertise --- */
@@ -171,23 +185,25 @@
             flex-wrap: wrap;
             justify-content: center;
             width: 100%;
-            max-width: 1000px;
+            max-width: 1100px;
         }
 
         .expertise-item {
             font-size: 1.4rem;
             font-weight: 800;
             background: var(--bg-card);
-            color: var(--accent-blue);
             padding: 25px 45px;
             border-radius: 12px;
-            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), background 0.4s ease;
+            border: 1px solid rgba(0, 210, 255, 0.2);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .expertise-item:hover {
             transform: scale(1.08) translateY(-10px);
-            background: var(--accent-blue);
+            background: var(--accent-cyan);
             color: var(--bg-dark);
+            text-shadow: none;
+            box-shadow: 0 10px 30px rgba(0, 210, 255, 0.5);
         }
 
         /* --- Education Timeline --- */
@@ -204,8 +220,9 @@
             top: 0;
             height: 100%;
             width: 3px;
-            background: #2A3655;
+            background: var(--bg-card);
             border-radius: 5px;
+            box-shadow: 0 0 10px var(--accent-cyan);
         }
 
         .timeline-item {
@@ -217,24 +234,24 @@
         .timeline-item::before {
             content: '';
             position: absolute;
-            left: 13px;
+            left: 11px;
             top: 6px;
-            width: 16px;
-            height: 16px;
+            width: 20px;
+            height: 20px;
             border-radius: 50%;
-            background: var(--accent-blue);
+            background: var(--accent-cyan);
+            box-shadow: 0 0 15px var(--accent-cyan);
         }
 
         .edu-title {
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             font-weight: 900;
             margin-bottom: 5px;
-            color: var(--text-main);
         }
 
         .edu-subtitle {
             font-size: 1.1rem;
-            color: var(--accent-blue);
+            color: var(--accent-cyan);
             font-weight: 700;
             margin-bottom: 8px;
             text-transform: uppercase;
@@ -250,15 +267,14 @@
         #contact {
             background: var(--bg-card);
             text-align: center;
-            padding: 140px 5%;
+            padding: 160px 5%;
         }
 
         .huge-text {
-            font-size: 6.5rem;
+            font-size: 7rem;
             font-weight: 900;
             letter-spacing: -3px;
-            margin-bottom: 50px;
-            color: var(--text-main);
+            margin-bottom: 60px;
         }
 
         .contact-links {
@@ -269,17 +285,17 @@
         }
 
         .contact-links a {
-            color: var(--accent-blue);
             text-decoration: none;
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             font-weight: 800;
             letter-spacing: 1px;
-            transition: transform 0.3s ease, color 0.3s ease;
+            transition: all 0.3s ease;
         }
 
         .contact-links a:hover {
             color: var(--text-main);
             transform: translateY(-5px);
+            text-shadow: 0 0 5px var(--text-main);
         }
 
         /* --- Responsive Design --- */
@@ -290,6 +306,7 @@
             .nav-links { display: none; }
             nav { justify-content: center; }
             .expertise-item { font-size: 1.2rem; padding: 20px 30px; }
+            .avatar-container { width: 200px; height: 250px; }
         }
     </style>
 </head>
@@ -306,37 +323,38 @@
     </nav>
 
     <header id="home">
-        <div class="avatar-container fade-in">
-            <img src="dad-avatar.png" alt="Mani Avatar">
+        <div class="avatar-container fade-in visible">
+            <!-- Directly linked to the user-provided URL -->
+            <img src="https://i.postimg.cc/YqSnrZjb/Gemini-Generated-Image-qjrttpqjrttpqjrt.png" alt="Mani Avatar">
         </div>
-        <h1 class="hero-title fade-in">HI, I'M MANI</h1>
-        <h2 class="hero-subtitle fade-in">THE SIP GUY</h2>
-        <p class="hero-desc fade-in">
+        <h1 class="hero-title neon-text-white fade-in visible">HI, I'M MANI</h1>
+        <h2 class="hero-subtitle neon-text-cyan fade-in visible">THE SIP GUY</h2>
+        <p class="hero-desc fade-in visible">
             I am an independent financial advisor and solo entrepreneur. With a strong foundation in operations and engineering, I specialize in navigating the complexities of SIPs and Mutual Funds to engineer strategic wealth generation for my clients.
         </p>
     </header>
 
     <section id="expertise">
-        <h2 class="section-title fade-in">MY <span>EXPERTISE</span></h2>
+        <h2 class="section-title neon-text-white fade-in">MY <span>EXPERTISE</span></h2>
         <div class="expertise-grid">
-            <div class="expertise-item fade-in">SIP STRATEGY</div>
-            <div class="expertise-item fade-in">MUTUAL FUNDS</div>
-            <div class="expertise-item fade-in">WEALTH MANAGEMENT</div>
-            <div class="expertise-item fade-in">FINANCIAL PLANNING</div>
-            <div class="expertise-item fade-in">PORTFOLIO OPTIMIZATION</div>
+            <div class="expertise-item neon-text-cyan fade-in">SIP STRATEGY</div>
+            <div class="expertise-item neon-text-cyan fade-in">MUTUAL FUNDS</div>
+            <div class="expertise-item neon-text-cyan fade-in">WEALTH MANAGEMENT</div>
+            <div class="expertise-item neon-text-cyan fade-in">FINANCIAL PLANNING</div>
+            <div class="expertise-item neon-text-cyan fade-in">PORTFOLIO OPTIMIZATION</div>
         </div>
     </section>
 
     <section id="education">
-        <h2 class="section-title fade-in">EDUCATION <span>JOURNEY</span></h2>
+        <h2 class="section-title neon-text-white fade-in">EDUCATION <span>JOURNEY</span></h2>
         <div class="timeline">
             <div class="timeline-item fade-in">
-                <div class="edu-title">MBA IN OPERATIONS</div>
+                <div class="edu-title neon-text-white">MBA IN OPERATIONS</div>
                 <div class="edu-subtitle">IGNOU</div>
                 <div class="edu-desc">Master of Business Administration focusing on operational efficiency and strategic management.</div>
             </div>
             <div class="timeline-item fade-in">
-                <div class="edu-title">B.E. IN MECHANICAL ENGINEERING</div>
+                <div class="edu-title neon-text-white">B.E. IN MECHANICAL ENGINEERING</div>
                 <div class="edu-subtitle">AMBEDKAR INSTITUTE OF TECHNOLOGY, BANGALORE</div>
                 <div class="edu-desc">Bachelor of Engineering, establishing a strong foundation in analytical thinking and systematic problem-solving.</div>
             </div>
@@ -344,10 +362,10 @@
     </section>
 
     <section id="contact">
-        <h2 class="huge-text fade-in">LET'S CONNECT</h2>
+        <h2 class="huge-text neon-text-white fade-in">LET'S CONNECT</h2>
         <div class="contact-links fade-in">
-            <a href="tel:+919886404055">PHONE - 9886404055</a>
-            <a href="mailto:manikantanv@yahoo.com">EMAIL - MANIKANTANV@YAHOO.COM</a>
+            <a href="tel:+919886404055" class="neon-text-cyan">PHONE - 9886404055</a>
+            <a href="mailto:manikantanv@yahoo.com" class="neon-text-cyan">EMAIL - MANIKANTANV@YAHOO.COM</a>
         </div>
     </section>
 
@@ -355,6 +373,14 @@
         // Upgraded JavaScript for Staggered, Smooth Scroll Fade-In Transitions
         document.addEventListener('DOMContentLoaded', () => {
             const faders = document.querySelectorAll('.fade-in');
+
+            // Apply visible immediately for elements already near the top on page load
+            faders.forEach(fader => {
+                const rect = fader.getBoundingClientRect();
+                if(rect.top < window.innerHeight * 0.9) {
+                    fader.classList.add('visible');
+                }
+            });
 
             const appearOptions = {
                 threshold: 0.1,
@@ -366,10 +392,10 @@
                     if (!entry.isIntersecting) {
                         return;
                     } else {
-                        // Add a slight delay based on index for a staggered "modern" reveal
+                        // Add a subtle staggered delay for the modern feel
                         setTimeout(() => {
                             entry.target.classList.add('visible');
-                        }, index * 50); 
+                        }, index * 40); 
                         observer.unobserve(entry.target);
                     }
                 });
@@ -378,18 +404,6 @@
             faders.forEach(fader => {
                 appearOnScroll.observe(fader);
             });
-            
-            // Trigger visible class immediately for above-the-fold content
-            setTimeout(() => {
-                faders.forEach((fader, index) => {
-                    const rect = fader.getBoundingClientRect();
-                    if(rect.top < window.innerHeight) {
-                        setTimeout(() => {
-                            fader.classList.add('visible');
-                        }, index * 100); // Stagger the initial load too
-                    }
-                });
-            }, 100);
         });
     </script>
 </body>
